@@ -1,0 +1,22 @@
+apply plugin: 'webwalker'
+
+buildscript {
+    repositories {
+        maven {
+            url uri('../release')
+        }
+    }
+
+    dependencies {
+        classpath group: 'com.webwalker', name: 'custom-plugin', version: '1.0.0'
+    }
+}
+
+myArgs {
+    sender = 'Micky Liu'
+    message = 'Gradle is so simple.'
+    nestArgs {
+        receiver = 'David Chen'
+        email = 'David@126.com'
+    }
+}
