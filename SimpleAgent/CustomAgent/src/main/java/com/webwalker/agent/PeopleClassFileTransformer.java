@@ -21,7 +21,7 @@ public class PeopleClassFileTransformer implements ClassFileTransformer {
         System.out.println("load class:"+className);
         if("com.webwalker.java.agent.People".equals(className)){
             try {
-                //é€šè¿‡javassistä¿®æ”¹sayHelloæ–¹æ³•å­—èŠ‚ç 
+                //Í¨¹ıjavassistĞŞ¸ÄsayHello·½·¨×Ö½ÚÂë
                 CtClass ctClass= ClassPool.getDefault().get(className.replace('/','.'));
                 CtMethod sayHelloMethod=ctClass.getDeclaredMethod("sayHello");
                 sayHelloMethod.insertBefore("System.out.println(\"before sayHello----\");");

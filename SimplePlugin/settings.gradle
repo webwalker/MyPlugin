@@ -1,1 +1,1 @@
-include ':CustomPlugin'
+include ':CustomPlugin', ':JavaPlugin'
