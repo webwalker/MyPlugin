@@ -12,6 +12,8 @@ buildscript {
     }
 }
 
+/*
+
 myArgs {
     sender = 'Micky Liu'
     message = 'Gradle is so simple.'
@@ -20,3 +22,11 @@ myArgs {
         email = 'David@126.com'
     }
 }
+
+//日期时间插件
+dateAndTime {
+    timeFormat = 'yyyy-MM-dd HH:mm:ss.SSS'
+    dateFormat = 'MM/dd/yyyy'
+}
+
+*/
