@@ -14,6 +14,9 @@ class ApmPlugin implements Plugin<Project> {
     void apply(Project target) {
         logger = target.logger;
         logger.info("Apm plugin loaded.");
+
+        project.task('apmInstrumentTask', type: ApmInstrumentTask);
+        project.task('apmDeinstrumentTask', type: ApmDeinstrumentTask);
     }
 }
 
