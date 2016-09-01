@@ -8,3 +8,5 @@ gradle uploadArchives
 gradle customTask
 gradle customTask1
 gradle customTask2
+
+note:保留groovy目录、Java目录位置

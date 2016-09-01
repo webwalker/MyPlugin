@@ -1,15 +1,22 @@
 apply plugin: 'java'
+apply plugin: 'maven'
 
-buildscript {
-    dependencies {
-        //classpath 'com.android.tools.build:gradle:2.1.2'
-    }
-}
+def jdkHome = System.getenv("JAVA_HOME")
 
 dependencies {
     compile gradleApi()
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs', exclude: "$jdkHome/lib/tools.jar")
+    provided files("$jdkHome/lib/tools.jar")
+    //compile files("$jdkHome/lib/tools.jar")
+    //compile fileTree(dir: "${System.properties['java.home']}/../lib", include: '*tools.jar')
 }
+
+repositories {
+    mavenCentral()
+}
+
+group = 'com.webwalker'
+version = '1.0.0'
 
 jar {
     manifest {
@@ -21,4 +28,25 @@ jar {
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
+}
+configurations {
+    compileOnly
+}
+sourceSets.all {
+    compileClasspath += configurations.compileOnly
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('/release')) //上传到本地Maven库
+        }
+    }
+}
+//options.forkOptions.executable = project.property('javacPath')
+compileJava {
+    //options.fork = true
+    //options.forkOptions.executable = "${System.properties['java.home']}/../bin/javac"
+    //options.forkOptions.executable = project.property('javacPath')
+    //options.bootClasspath = 'D:\\Program Files\\Java\\jdk1.7.0_79\\lib'
 }

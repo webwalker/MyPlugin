@@ -2,9 +2,9 @@ apply plugin: 'java'
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    /*compile 'org.javassist:javassist:3.20.0-GA'
-        compile group: 'org.ow2.asm', name: 'asm', version: '6.0_ALPHA'
-        compile group: 'org.apache.bcel', name: 'bcel', version: '6.0'*/
+    compile 'org.javassist:javassist:3.20.0-GA'
+    /*compile group: 'org.ow2.asm', name: 'asm', version: '6.0_ALPHA'
+    compile group: 'org.apache.bcel', name: 'bcel', version: '6.0'*/
 }
 
 /*targetCompatibility = '1.7'
